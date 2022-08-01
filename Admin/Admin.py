@@ -9,18 +9,23 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
+#variables
+username = "Admin"
+password = "admin123"
+url      = "https://opensource-demo.orangehrmlive.com/"
+
 class TestAdmin(unittest.TestCase): 
 
     def setUp(self): 
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
         
-    def test_a_SearchUser(self): #search a valid username
+    def test_a_SearchUser(self): 
         driver = self.driver
-        driver.get("https://opensource-demo.orangehrmlive.com/")
+        driver.get(url)
         time.sleep(3)
-        driver.find_element(By.ID,"txtUsername").send_keys("Admin")
+        driver.find_element(By.ID,"txtUsername").send_keys(username)
         time.sleep(1)
-        driver.find_element(By.ID,"txtPassword").send_keys("admin123")
+        driver.find_element(By.ID,"txtPassword").send_keys(password)
         time.sleep(1)
         driver.find_element(By.ID,"btnLogin").click()
         time.sleep(1)
@@ -34,14 +39,14 @@ class TestAdmin(unittest.TestCase):
         response_message = driver.find_element(By.XPATH,"//tbody/tr[1]/td[2]").text
         self.assertEqual(response_message, 'Admin')
 
-    def test_b_AddLanguage(self): #add an existing language
+    def test_b_AddLanguage(self):
         driver = self.driver
         action = ActionChains(driver)
-        driver.get("https://opensource-demo.orangehrmlive.com/")
+        driver.get(url)
         time.sleep(3)
-        driver.find_element(By.ID,"txtUsername").send_keys("Admin")
+        driver.find_element(By.ID,"txtUsername").send_keys(username)
         time.sleep(1)
-        driver.find_element(By.ID,"txtPassword").send_keys("admin123")
+        driver.find_element(By.ID,"txtPassword").send_keys(password)
         time.sleep(1)
         driver.find_element(By.ID,"btnLogin").click()
         time.sleep(1)
