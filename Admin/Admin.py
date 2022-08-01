@@ -14,7 +14,7 @@ class TestAdmin(unittest.TestCase):
     def setUp(self): 
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
         
-    def test_a_SearchUser(self): 
+    def test_a_SearchUser(self): #search a valid username
         driver = self.driver
         driver.get("https://opensource-demo.orangehrmlive.com/")
         time.sleep(3)
@@ -34,7 +34,7 @@ class TestAdmin(unittest.TestCase):
         response_message = driver.find_element(By.XPATH,"//tbody/tr[1]/td[2]").text
         self.assertEqual(response_message, 'Admin')
 
-    def test_b_AddLanguage(self):
+    def test_b_AddLanguage(self): #add an existing language
         driver = self.driver
         action = ActionChains(driver)
         driver.get("https://opensource-demo.orangehrmlive.com/")
