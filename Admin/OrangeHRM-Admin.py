@@ -50,7 +50,7 @@ class TestAdmin(unittest.TestCase):
         time.sleep(1)
         driver.find_element(By.CSS_SELECTOR,"#menu_admin_viewAdminModule").click()
         time.sleep(1)
-        ActionChains(driver).move_to_element(driver.find_element(By.ID,"menu_admin_Qualifications")).perform()
+        action.move_to_element(driver.find_element(By.ID,"menu_admin_Qualifications")).perform()
         time.sleep(1)
         driver.find_element(By.ID,"menu_admin_viewLanguages").click()
         time.sleep(1)
