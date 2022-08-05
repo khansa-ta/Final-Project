@@ -3,7 +3,6 @@ import unittest
 import time
 from selenium import webdriver 
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -45,4 +44,5 @@ class TestTime(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()
