@@ -28,7 +28,7 @@ class TestRecruitment(unittest.TestCase):
         time.sleep(1)
         driver.find_element(By.ID,"menu_recruitment_viewRecruitmentModule").click()
         time.sleep(1)
-        driver.find_element(By.XPATH,"//input[@type='checkbox'][1]").click()
+        driver.find_element(By.XPATH,"/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/form[1]/div[4]/table[1]/tbody[1]/tr[1]/td[1]/input[1]").click()
         time.sleep(1)
         driver.find_element(By.ID,"btnDelete").click()
         time.sleep(1)
@@ -46,4 +46,3 @@ class TestRecruitment(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
