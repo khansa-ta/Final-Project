@@ -33,12 +33,13 @@ class TestDirectory(unittest.TestCase):
         driver.find_element(By.ID,"searchBtn").click()
         time.sleep(1)
 
-        response_message = driver.find_element(By.XPATH,"//body/div[@id='wrapper']/div[@id='content']/div[2]/div[2]").text
-        self.assertIn('No Records Found', response_message)
+        response_data = driver.find_element(By.XPATH,"//body/div[@id='wrapper']/div[@id='content']/div[2]/div[2]").text
+        self.assertEqual(response_data, "No Records Found")
 
 
     
     def tearDown(self):
         self.driver.close()
 
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()
