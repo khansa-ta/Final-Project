@@ -35,7 +35,7 @@ class TestAdmin(unittest.TestCase):
         time.sleep(1)
 
         response_message = driver.find_element(By.XPATH,"//tbody/tr[1]/td[2]").text
-        self.assertEqual(response_message, 'Admin')
+        self.assertEqual('Admin', response_message)
 
     def test_b_AddLanguage(self):
         driver = self.driver
