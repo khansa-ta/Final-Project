@@ -1,13 +1,16 @@
 from fileinput import filename
+from http.client import ImproperConnectionState
 from lib2to3.pgen2 import driver
-from sqlite3 import Time
 import unittest
 import time
+from urllib import response
+import requests
 from selenium import webdriver 
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome import options
 
 #variables
 username = "Admin"
@@ -18,6 +21,7 @@ class TestMaintenance(unittest.TestCase):
 
     def setUp(self): 
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        op = webdriver.ChromeOptions
         
     def test_a_DownloadData(self): #Download data
         driver = self.driver
@@ -50,16 +54,15 @@ class TestMaintenance(unittest.TestCase):
         time.sleep(1)
         driver.find_element(By.ID,"modal_confirm").click()
         time.sleep(1)
-
-        if driver.execute_script("var ajaxUrl"):
-            self.assertTrue
-        else: 
-            self.assertFalse
         
-    
+        resp = requests.post("https://opensource-demo.orangehrmlive.com/index.php/maintenance/getEmployeeDataApi")
+        self.assertEqual(resp.status_code, 200)
+
+        
 
     
     def tearDown(self):
         self.driver.close()
 
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()
