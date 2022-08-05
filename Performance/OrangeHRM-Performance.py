@@ -56,4 +56,5 @@ class TestPerformance(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()
