@@ -29,10 +29,10 @@ class TestDashboard(unittest.TestCase):
         driver.find_element(By.XPATH,"//tbody/tr[1]/td[1]/div[1]/a[1]/img[1]").click()
         time.sleep(1)
         
-        response_message = driver.find_element(By.ID,"assign-leave").text
-        self.assertIn('Assign Leave', response_message)
+        response_data = driver.find_element(By.ID,"assign-leave").text
+        self.assertIn("Assign Leave", response_data)
 
-    def test_b_Chart(self): #Verify if the chart of Employee Distribution is shown
+    def test_b_Chart(self): #Verify if the chart of Employee Distribution is displayed
         driver = self.driver
         driver.get(url)
         time.sleep(3)
