@@ -61,10 +61,11 @@ class TestAdmin(unittest.TestCase):
         driver.find_element(By.ID,"btnSave").click()
         time.sleep(1)
 
-        response_data = driver.find_element(By.CSS_SELECTOR, "#recordsListDiv").text
-        self.assertIn("Already Exists", response_data)
+        response_message = driver.find_element(By.CSS_SELECTOR, "#recordsListDiv").text
+        self.assertIn("Already Exists", response_message)
     
     def tearDown(self):
         self.driver.close()
 
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()
