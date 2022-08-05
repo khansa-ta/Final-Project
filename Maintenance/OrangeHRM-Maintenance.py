@@ -7,7 +7,6 @@ from urllib import response
 import requests
 from selenium import webdriver 
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome import options
@@ -21,11 +20,10 @@ class TestMaintenance(unittest.TestCase):
 
     def setUp(self): 
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
-        op = webdriver.ChromeOptions
+
         
     def test_a_DownloadData(self): #Download data
         driver = self.driver
-        action = ActionChains(driver)
         driver.get(url)
         time.sleep(3)
         driver.find_element(By.ID,"txtUsername").send_keys(username)
