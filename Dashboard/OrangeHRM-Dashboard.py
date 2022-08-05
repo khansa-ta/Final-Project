@@ -29,8 +29,8 @@ class TestDashboard(unittest.TestCase):
         driver.find_element(By.XPATH,"//tbody/tr[1]/td[1]/div[1]/a[1]/img[1]").click()
         time.sleep(1)
         
-        response_data = driver.find_element(By.ID,"assign-leave").text
-        self.assertIn('Assign Leave', response_data)
+        response_message = driver.find_element(By.ID,"assign-leave").text
+        self.assertIn('Assign Leave', response_message)
 
     def test_b_Chart(self): #Verify if the chart of Employee Distribution is shown
         driver = self.driver
@@ -49,4 +49,5 @@ class TestDashboard(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()
